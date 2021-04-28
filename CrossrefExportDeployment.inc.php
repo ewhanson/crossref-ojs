@@ -1,17 +1,17 @@
 <?php
 /**
- * @defgroup plugins_importexport_crossref Crossref export plugin
+ * @defgroup plugins_generic_crossref Crossref export plugin
  */
 
 /**
- * @file plugins/importexport/crossref/CrossrefExportDeployment.inc.php
+ * @file plugins/generic/crossref/CrossrefExportDeployment.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under The MIT License. For full terms see the file LICENSE.
  *
  * @class CrossrefExportDeployment
- * @ingroup plugins_importexport_crossref
+ * @ingroup plugins_generic_crossref
  *
  * @brief Base class configuring the crossref export process to an
  * application's specifics.

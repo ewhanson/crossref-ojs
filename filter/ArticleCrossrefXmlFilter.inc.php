@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @file plugins/importexport/crossref/filter/ArticleCrossrefXmlFilter.inc.php
+ * @file plugins/generic/crossref/filter/ArticleCrossrefXmlFilter.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under The MIT License. For full terms see the file LICENSE.
  *
  * @class ArticleCrossrefXmlFilter
- * @ingroup plugins_importexport_crossref
+ * @ingroup plugins_generic_crossref
  *
  * @brief Class that converts an Article to a Crossref XML document.
  */
 
-import('plugins.importexport.crossref.filter.IssueCrossrefXmlFilter');
+import('plugins.generic.crossref.filter.IssueCrossrefXmlFilter');
 
 use APP\submission\Submission;
 
@@ -213,7 +213,9 @@ class ArticleCrossrefXmlFilter extends IssueCrossrefXmlFilter {
 		}
 
 		// DOI data
-		$doiDataNode = $this->createDOIDataNode($doc, $publication->getStoredPubId('doi'), $request->url($context->getPath(), 'article', 'view', $submission->getBestId(), null, null, true));
+		$dispatcher = $request->getDispatcher();
+		$url = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'article', 'view', $submission->getBestId(), null, null, true);
+		$doiDataNode = $this->createDOIDataNode($doc, $publication->getStoredPubId('doi'), $url);
 		// append galleys files and collection nodes to the DOI data node
 		$galleys = $publication->getData('galleys');
 		// All full-texts, PDF full-texts and remote galleys for text-mining and as-crawled URL
@@ -283,6 +285,7 @@ class ArticleCrossrefXmlFilter extends IssueCrossrefXmlFilter {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
 		$request = Application::get()->getRequest();
+		$dispatcher = $request->getDispatcher();
 
 		if (empty($galleys)) {
 			$crawlerBasedCollectionNode = $doc->createElementNS($deployment->getNamespace(), 'collection');
@@ -290,7 +293,7 @@ class ArticleCrossrefXmlFilter extends IssueCrossrefXmlFilter {
 			$doiDataNode->appendChild($crawlerBasedCollectionNode);
 		}
 		foreach ($galleys as $galley) {
-			$resourceURL = $request->url($context->getPath(), 'article', 'download', array($submission->getBestId(), $galley->getBestGalleyId()), null, null, true);
+			$resourceURL = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'article', 'download', array($submission->getBestId(), $galley->getBestGalleyId()), null, null, true);
 			// iParadigms crawler based collection element
 			$crawlerBasedCollectionNode = $doc->createElementNS($deployment->getNamespace(), 'collection');
 			$crawlerBasedCollectionNode->setAttribute('property', 'crawler-based');
@@ -313,12 +316,13 @@ class ArticleCrossrefXmlFilter extends IssueCrossrefXmlFilter {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
 		$request = Application::get()->getRequest();
+		$dispatcher = $request->getDispatcher();
 
 		// start of the text-mining collection element
 		$textMiningCollectionNode = $doc->createElementNS($deployment->getNamespace(), 'collection');
 		$textMiningCollectionNode->setAttribute('property', 'text-mining');
 		foreach ($galleys as $galley) {
-			$resourceURL = $request->url($context->getPath(), 'article', 'download', array($submission->getBestId(), $galley->getBestGalleyId()), null, null, true);
+			$resourceURL = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'article', 'download', array($submission->getBestId(), $galley->getBestGalleyId()), null, null, true);
 			// text-mining collection item
 			$textMiningItemNode = $doc->createElementNS($deployment->getNamespace(), 'item');
 			$resourceNode = $doc->createElementNS($deployment->getNamespace(), 'resource', $resourceURL);
@@ -340,6 +344,7 @@ class ArticleCrossrefXmlFilter extends IssueCrossrefXmlFilter {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
 		$request = Application::get()->getRequest();
+		$dispatcher = $request->getDispatcher();
 
 		// Create the base node
 		$componentListNode =$doc->createElementNS($deployment->getNamespace(), 'component_list');
@@ -356,7 +361,7 @@ class ArticleCrossrefXmlFilter extends IssueCrossrefXmlFilter {
 				$componentNode->appendChild($titlesNode);
 			}
 			// DOI data node
-			$resourceURL = $request->url($context->getPath(), 'article', 'download', array($submission->getBestId(), $componentGalley->getBestGalleyId()), null, null, true);
+			$resourceURL = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'article', 'download', array($submission->getBestId(), $componentGalley->getBestGalleyId()), null, null, true);
 			$componentNode->appendChild($this->createDOIDataNode($doc, $componentGalley->getStoredPubId('doi'), $resourceURL));
 			$componentListNode->appendChild($componentNode);
 		}

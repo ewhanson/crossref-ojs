@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file plugins/importexport/crossref/filter/IssueCrossrefXmlFilter.inc.php
+ * @file plugins/generic/crossref/filter/IssueCrossrefXmlFilter.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under The MIT License. For full terms see the file LICENSE.
  *
  * @class IssueCrossrefXmlFilter
- * @ingroup plugins_importexport_crossref
+ * @ingroup plugins_generic_crossref
  *
  * @brief Class that converts an Issue to a Crossref XML document.
  */
@@ -193,7 +193,9 @@ class IssueCrossrefXmlFilter extends NativeExportFilter {
 		}
 		if ($issue->getDatePublished() && $issue->getStoredPubId('doi')) {
 			$request = Application::get()->getRequest();
-			$journalIssueNode->appendChild($this->createDOIDataNode($doc, $issue->getStoredPubId('doi'), $request->url($context->getPath(), 'issue', 'view', $issue->getBestIssueId($context), null, null, true)));
+			$dispatcher = $request->getDispatcher();
+			$url = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'issue', 'view', $issue->getBestIssueId($context), null, null, true);
+			$journalIssueNode->appendChild($this->createDOIDataNode($doc, $issue->getStoredPubId('doi'), $url));
 		}
 		return $journalIssueNode;
 	}

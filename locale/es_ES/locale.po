@@ -15,10 +15,10 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.importexport.crossref.displayName"
-msgstr "Módulo de exportación CrossRef XML"
+msgstr "Módulo de exportación Crossref XML"
 
 msgid "plugins.importexport.crossref.description"
-msgstr "Exportar los metadatos del artículo en formato CrossRef XML."
+msgstr "Exportar los metadatos del artículo en formato Crossref XML."
 
 msgid "plugins.importexport.crossref.requirements"
 msgstr "Requerimientos"
@@ -36,7 +36,7 @@ msgid "plugins.importexport.crossref.error.noDOIContentObjects"
 msgstr "No se han seleccionado artículos a los que asignar un idenficador público DOI, por lo tanto, el módulo no puede depositar o exportar nada."
 
 msgid "plugins.importexport.crossref.settings.depositorIntro"
-msgstr "Para un correcto depósito en CrossRef, se requieren los siguientes ítems."
+msgstr "Para un correcto depósito en Crossref, se requieren los siguientes ítems."
 
 msgid "plugins.importexport.crossref.settings.form.depositorName"
 msgstr "Nombre del depositario"
@@ -56,19 +56,19 @@ msgid "plugins.importexport.crossref.settings.form.depositorEmailRequired"
 msgstr "Introduzca el email del depositario."
 
 msgid "plugins.importexport.crossref.registrationIntro"
-msgstr "Si quiere usar este módulo para registrar Identificadores Digitales de Objeto (Digital Object Identifiers - DOI, en inglés) directamente con CrossRef, necesita un usuario y contraseña (disponible en <a href=\"http://www.crossref.org\" target=\"_blank\">CrossRef</a>). Si no dispone de su propio usuario y contraseña, todavía puede exportar en formato XML de CrossRef, pero no podrá registrar sus DOIs en CrossRef directamente desde OJS."
+msgstr "Si quiere usar este módulo para registrar Identificadores Digitales de Objeto (Digital Object Identifiers - DOI, en inglés) directamente con Crossref, necesita un usuario y contraseña (disponible en <a href=\"http://www.crossref.org\" target=\"_blank\">Crossref</a>). Si no dispone de su propio usuario y contraseña, todavía puede exportar en formato XML de Crossref, pero no podrá registrar sus DOIs en Crossref directamente desde OJS."
 
 msgid "plugins.importexport.crossref.settings.form.username"
 msgstr "Usuario"
 
 msgid "plugins.importexport.crossref.settings.form.usernameRequired"
-msgstr "Introduzca el usuario que ha obtenido de CrossRef."
+msgstr "Introduzca el usuario que ha obtenido de Crossref."
 
 msgid "plugins.importexport.crossref.settings.form.automaticRegistration.description"
-msgstr "OJS depositará los DOIs asignados en CrossRef de forma automática. Esto puede tomar un poco de tiempo de proceso tras la publicación. Puede comprobar todos los DOIs no registrados."
+msgstr "OJS depositará los DOIs asignados en Crossref de forma automática. Esto puede tomar un poco de tiempo de proceso tras la publicación. Puede comprobar todos los DOIs no registrados."
 
 msgid "plugins.importexport.crossref.settings.form.testMode.description"
-msgstr "Usar la API de pruebas de CrossRef (entorno de testing) para depositar los DOIs. No olvide desactivar esta opción cuando pase a producción."
+msgstr "Usar la API de pruebas de Crossref (entorno de testing) para depositar los DOIs. No olvide desactivar esta opción cuando pase a producción."
 
 msgid "plugins.importexport.crossref.issues.description"
 msgstr "Nota: Solo los números (y no sus artículos) se toman en consideración para la exportación/registro."
@@ -106,7 +106,7 @@ msgid "plugins.importexport.crossref.action.register"
 msgstr "Depositar"
 
 msgid "plugins.importexport.crossref.senderTask.name"
-msgstr "Tarea automática de registro en CrossRef"
+msgstr "Tarea automática de registro en Crossref"
 
 msgid "plugins.importexport.crossref.cliUsage"
 msgstr ""

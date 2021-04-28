@@ -16,10 +16,10 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.importexport.crossref.displayName"
-msgstr "إضافة التصدير CrossRef لملفات XML"
+msgstr "إضافة التصدير Crossref لملفات XML"
 
 msgid "plugins.importexport.crossref.description"
-msgstr "تصدير البيانات الوصفية للمقالات بصيغة CrossRef XML."
+msgstr "تصدير البيانات الوصفية للمقالات بصيغة Crossref XML."
 
 msgid "plugins.importexport.crossref.requirements"
 msgstr "المتطلبات"
@@ -37,7 +37,7 @@ msgid "plugins.importexport.crossref.error.noDOIContentObjects"
 msgstr "لم يسبق إختيار المؤلفات لتعيين DOI في إضافة المعرف العام DOI، لذلك لن يكون لهذه الإضافة إمكانية إيداع أو تصدير حالياً."
 
 msgid "plugins.importexport.crossref.settings.depositorIntro"
-msgstr "الفقرات الآتية مطلوبة من أجل إيداع ناجح لدى CrossRef."
+msgstr "الفقرات الآتية مطلوبة من أجل إيداع ناجح لدى Crossref."
 
 msgid "plugins.importexport.crossref.settings.form.depositorName"
 msgstr "اسم المودع"
@@ -52,19 +52,19 @@ msgid "plugins.importexport.crossref.settings.form.depositorEmailRequired"
 msgstr "لطفاً، أدخل البريد الالكتروني للمودع."
 
 msgid "plugins.importexport.crossref.registrationIntro"
-msgstr "هذه الإضافة بإمكانك ضبطها لتقوم تلقائياً بتسجيل معرفات المكونات الرقمية (DOIs) في CrossRef. سيكون بحاجة إلى اسم مستخدم وكلمة مرور (متوافران عبر <a href=\"http://www.crossref.org\" target=\"_blank\">CrossRef</a>) من أجل القيام بذلك. إن لم يكن لك اسم مستخدم وكلمة مرور خاصين بك، سيكون بإمكانك أيضاً التصدير إلى CrossRef بصيغة XML، لكن لن تتمكن من تسجيل DOI الخاصة بك في CrossRef من داخل نظام المجلات المفتوحة."
+msgstr "هذه الإضافة بإمكانك ضبطها لتقوم تلقائياً بتسجيل معرفات المكونات الرقمية (DOIs) في Crossref. سيكون بحاجة إلى اسم مستخدم وكلمة مرور (متوافران عبر <a href=\"http://www.crossref.org\" target=\"_blank\">Crossref</a>) من أجل القيام بذلك. إن لم يكن لك اسم مستخدم وكلمة مرور خاصين بك، سيكون بإمكانك أيضاً التصدير إلى Crossref بصيغة XML، لكن لن تتمكن من تسجيل DOI الخاصة بك في Crossref من داخل نظام المجلات المفتوحة."
 
 msgid "plugins.importexport.crossref.settings.form.username"
 msgstr "اسم المستخدم"
 
 msgid "plugins.importexport.crossref.settings.form.usernameRequired"
-msgstr "لطفاً، أدخل اسم المستخدم الذي حصلت عليه من CrossRef."
+msgstr "لطفاً، أدخل اسم المستخدم الذي حصلت عليه من Crossref."
 
 msgid "plugins.importexport.crossref.settings.form.automaticRegistration.description"
-msgstr "نظام المجلات المفتوحة سيقوم بإيداع DOI الخاصة بالمقالات آلياً في CrossRef بمجرد نشر تلك المقالات. لطفاً، لاحظ أن هذا الأمر قد يستغرق وقتاً قصيراً للمعالجة بعد إجراء النشر (أي اعتماداً على إعداداتك للإضافة cronjob). بإمكانك التحقق من كل DOI غير المسجلة عبر <a href=\"{$unregisteredURL}\">قائمة المقالات غير المسجلة</a>."
+msgstr "نظام المجلات المفتوحة سيقوم بإيداع DOI الخاصة بالمقالات آلياً في Crossref بمجرد نشر تلك المقالات. لطفاً، لاحظ أن هذا الأمر قد يستغرق وقتاً قصيراً للمعالجة بعد إجراء النشر (أي اعتماداً على إعداداتك للإضافة cronjob). بإمكانك التحقق من كل DOI غير المسجلة عبر <a href=\"{$unregisteredURL}\">قائمة المقالات غير المسجلة</a>."
 
 msgid "plugins.importexport.crossref.settings.form.testMode.description"
-msgstr "استعمل خاصية إختبار CrossRef (بيئة الاختبار) لمستودع DOI. لطفاً، لا تنس إزالة هذا الخيار عند التشغيل الفعلي."
+msgstr "استعمل خاصية إختبار Crossref (بيئة الاختبار) لمستودع DOI. لطفاً، لا تنس إزالة هذا الخيار عند التشغيل الفعلي."
 
 msgid "plugins.importexport.crossref.settings.form.validation"
 msgstr "التحقق من XML. استعمل هذا الخيار مع تنزيل XML من أجل التسجيل اليدوي لمعرفات المكونات الرقمية DOI."
@@ -103,7 +103,7 @@ msgid "plugins.importexport.crossref.action.markRegistered"
 msgstr "أشره فعالاً"
 
 msgid "plugins.importexport.crossref.senderTask.name"
-msgstr "مهمة التسجيل التلقائي في CrossRef"
+msgstr "مهمة التسجيل التلقائي في Crossref"
 
 msgid "plugins.importexport.crossref.cliUsage"
 msgstr ""

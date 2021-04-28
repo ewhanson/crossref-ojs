@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file plugins/importexport/crossref/classes/form/CrossRefSettingsForm.inc.php
+ * @file plugins/generic/crossref/classes/form/CrossRefSettingsForm.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under The MIT License. For full terms see the file LICENSE.
  *
  * @class CrossRefSettingsForm
- * @ingroup plugins_importexport_crossref
+ * @ingroup plugins_generic_crossref
  *
  * @brief Form for journal managers to setup CrossRef plugin
  */
@@ -50,7 +50,7 @@ class CrossRefSettingsForm extends Form {
 	//
 	/**
 	 * Constructor
-	 * @param $plugin CrossRefExportPlugin
+	 * @param $plugin CrossRefPlugin
 	 * @param $contextId integer
 	 */
 	function __construct($plugin, $contextId) {

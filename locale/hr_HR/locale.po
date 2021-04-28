@@ -12,10 +12,10 @@ msgstr ""
 "Language: \n"
 
 msgid "plugins.importexport.crossref.displayName"
-msgstr "Dodatak za CrossRef XML iznošenje"
+msgstr "Dodatak za Crossref XML iznošenje"
 
 msgid "plugins.importexport.crossref.description"
-msgstr "Koristi se za iznošenje metapodataka članaka u CrossRef XML formatu."
+msgstr "Koristi se za iznošenje metapodataka članaka u Crossref XML formatu."
 
 msgid "plugins.importexport.crossref.cliUsage"
 msgstr ""

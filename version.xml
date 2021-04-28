@@ -2,7 +2,7 @@
 <!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
 
 <!--
-  * plugins/importexport/crossref/version.xml
+  * plugins/generic/crossref/version.xml
   *
   * Copyright (c) 2014-2021 Simon Fraser University
   * Copyright (c) 2003-2021 John Willinsky
@@ -10,9 +10,18 @@
   *
   * Plugin version information.
   -->
+<!--
+INSERT INTO `versions` (`major`, `minor`, `revision`, `build`, `date_installed`, `current`, `product_type`, `product`, `product_class_name`, `lazy_load`, `sitewide`)
+VALUES
+	(2, 1, 0, 0, '2021-03-08 17:16:07', 1, 'plugins.importexport', 'crossref', '', 0, 0);
+
+-->
+<!--
+TODO: Update product type and filter class locaiton (i.e. plugins.generic instead of plugins.import)
+-->
 <version>
 	<application>crossref</application>
-	<type>plugins.importexport</type>
-	<release>2.1.0.0</release>
-	<date>2016-06-28</date>
+	<type>plugins.generic</type>
+	<release>3.0.0.0</release>
+	<date>2021-03-29</date>
 </version>

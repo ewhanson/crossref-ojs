@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file plugins/importexport/crossref/CrossRefExportPlugin.inc.php
+ * @file plugins/generic/crossref/CrossRefExportPlugin.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under The MIT License. For full terms see the file LICENSE.
  *
  * @class CrossRefExportPlugin
- * @ingroup plugins_importexport_crossref
+ * @ingroup plugins_generic_crossref
  *
  * @brief CrossRef/MEDLINE XML metadata export plugin
  */
@@ -197,77 +197,83 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 	/**
 	 * @copydoc PubObjectsExportPlugin::executeExportAction()
 	 */
-	function executeExportAction($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation = null) {
+	function executeExportAction($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation = null, $shouldRedirect = true) {
+		if ($request->getUserVar(EXPORT_ACTION_DEPOSIT)) {
+			$this->exportAndDeposit($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation, false);
+		} else {
+			parent::executeExportAction($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation, false);
+		}
+	}
+
+	function exportAndDeposit($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation = null, $shouldRedirect = true) {
 		$context = $request->getContext();
 		$path = array('plugin', $this->getName());
 
 		$fileManager = new FileManager();
 		$resultErrors = array();
 
-		if ($request->getUserVar(EXPORT_ACTION_DEPOSIT)) {
-			assert($filter != null);
-			// Errors occured will be accessible via the status link
-			// thus do not display all errors notifications (for every article),
-			// just one general.
-			// Warnings occured when the registration was successfull will however be
-			// displayed for each article.
-			$errorsOccured = false;
-			// The new Crossref deposit API expects one request per object.
-			// On contrary the export supports bulk/batch object export, thus
-			// also the filter expects an array of objects.
-			// Thus the foreach loop, but every object will be in an one item array for
-			// the export and filter to work.
-			foreach ($objects as $object) {
-				// Get the XML
-				$exportXml = $this->exportXML(array($object), $filter, $context, $noValidation);
-				// Write the XML to a file.
-				// export file name example: crossref-20160723-160036-articles-1-1.xml
-				$objectsFileNamePart = $objectsFileNamePart . '-' . $object->getId();
-				$exportFileName = $this->getExportFileName($this->getExportPath(), $objectsFileNamePart, $context, '.xml');
-				$fileManager->writeFile($exportFileName, $exportXml);
-				// Deposit the XML file.
-				$result = $this->depositXML($object, $context, $exportFileName);
-				if (!$result) {
-					$errorsOccured = true;
-				}
-				if (is_array($result)) {
-					$resultErrors[] = $result;
-				}
-				// Remove all temporary files.
-				$fileManager->deleteByPath($exportFileName);
+		assert($filter != null);
+		// Errors occured will be accessible via the status link
+		// thus do not display all errors notifications (for every article),
+		// just one general.
+		// Warnings occured when the registration was successfull will however be
+		// displayed for each article.
+		$errorsOccured = false;
+		// The new Crossref deposit API expects one request per object.
+		// On contrary the export supports bulk/batch object export, thus
+		// also the filter expects an array of objects.
+		// Thus the foreach loop, but every object will be in an one item array for
+		// the export and filter to work.
+		foreach ($objects as $object) {
+			// Get the XML
+			$exportXml = $this->exportXML(array($object), $filter, $context, $noValidation);
+			// Write the XML to a file.
+			// export file name example: crossref-20160723-160036-articles-1-1.xml
+			$objectsFileNamePart = $objectsFileNamePart . '-' . $object->getId();
+			$exportFileName = $this->getExportFileName($this->getExportPath(), $objectsFileNamePart, $context, '.xml');
+			$fileManager->writeFile($exportFileName, $exportXml);
+			// Deposit the XML file.
+			$result = $this->depositXML($object, $context, $exportFileName);
+			if (!$result) {
+				$errorsOccured = true;
 			}
-			// send notifications
-			if (empty($resultErrors)) {
-				if ($errorsOccured) {
-					$this->_sendNotification(
-						$request->getUser(),
-						'plugins.importexport.crossref.register.error.mdsError',
-						PKPNotification::NOTIFICATION_TYPE_ERROR
-					);
-				} else {
-					$this->_sendNotification(
-						$request->getUser(),
-						$this->getDepositSuccessNotificationMessageKey(),
-						PKPNotification::NOTIFICATION_TYPE_SUCCESS
-					);
-				}
+			if (is_array($result)) {
+				$resultErrors[] = $result;
+			}
+			// Remove all temporary files.
+			$fileManager->deleteByPath($exportFileName);
+		}
+		// send notifications
+		if (empty($resultErrors)) {
+			if ($errorsOccured) {
+				$this->_sendNotification(
+					$request->getUser(),
+					'plugins.importexport.crossref.register.error.mdsError',
+					PKPNotification::NOTIFICATION_TYPE_ERROR
+				);
 			} else {
-				foreach($resultErrors as $errors) {
-					foreach ($errors as $error) {
-						assert(is_array($error) && count($error) >= 1);
-						$this->_sendNotification(
-							$request->getUser(),
-							$error[0],
-							PKPNotification::NOTIFICATION_TYPE_ERROR,
-							(isset($error[1]) ? $error[1] : null)
-						);
-					}
+				$this->_sendNotification(
+					$request->getUser(),
+					$this->getDepositSuccessNotificationMessageKey(),
+					PKPNotification::NOTIFICATION_TYPE_SUCCESS
+				);
+			}
+		} else {
+			foreach($resultErrors as $errors) {
+				foreach ($errors as $error) {
+					assert(is_array($error) && count($error) >= 1);
+					$this->_sendNotification(
+						$request->getUser(),
+						$error[0],
+						PKPNotification::NOTIFICATION_TYPE_ERROR,
+						(isset($error[1]) ? $error[1] : null)
+					);
 				}
 			}
+		}
+		if ($shouldRedirect) {
 			// redirect back to the right tab
 			$request->redirect(null, null, null, $path, null, $tab);
-		} else {
-			parent::executeExportAction($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation);
 		}
 	}
 
@@ -368,7 +374,7 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 	}
 
 	/**
-	 * Check the CrossRef APIs, if deposits and registration have been successful
+	 * Check the Crossref APIs, if deposits and registration have been successful
 	 * @param $context Context
 	 * @param $object The object getting deposited
 	 * @param $status CROSSREF_STATUS_...

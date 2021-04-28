@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file plugins/importexport/crossref/CrossrefInfoSender.php
+ * @file plugins/generic/crossref/CrossrefInfoSender.php
  *
  * Copyright (c) 2013-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under The MIT License. For full terms see the file LICENSE.
  *
  * @class CrossrefInfoSender
- * @ingroup plugins_importexport_crossref
+ * @ingroup plugins_generic_crossref
  *
  * @brief Scheduled task to send deposits to Crossref and update statuses.
  */

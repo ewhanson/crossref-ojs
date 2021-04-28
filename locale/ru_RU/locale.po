@@ -12,10 +12,10 @@ msgstr ""
 "Language: \n"
 
 msgid "plugins.importexport.crossref.displayName"
-msgstr "Модуль «Экспорт CrossRef XML»"
+msgstr "Модуль «Экспорт Crossref XML»"
 
 msgid "plugins.importexport.crossref.description"
-msgstr "Экспортирует метаданные статьи в формате CrossRef XML."
+msgstr "Экспортирует метаданные статьи в формате Crossref XML."
 
 msgid "plugins.importexport.crossref.requirements"
 msgstr "Требования"
@@ -33,7 +33,7 @@ msgid "plugins.importexport.crossref.error.noDOIContentObjects"
 msgstr "Не выбраны статьи для присвоения DOI в модуле открытых идентификаторов DOI, поэтому нет возможности депонировать или экспортировать в этом модуле."
 
 msgid "plugins.importexport.crossref.settings.depositorIntro"
-msgstr "Следующая информация необходима для успешной передачи в депозитарий CrossRef."
+msgstr "Следующая информация необходима для успешной передачи в депозитарий Crossref."
 
 msgid "plugins.importexport.crossref.settings.form.depositorName"
 msgstr "Имя ответственного"
@@ -48,19 +48,19 @@ msgid "plugins.importexport.crossref.settings.form.depositorEmailRequired"
 msgstr ">Пожалуйста, введите адрес электронной почты ответственного."
 
 msgid "plugins.importexport.crossref.registrationIntro"
-msgstr "Если вы хотите использовать этот модуль для регистрации идентификаторов цифровых объектов(DOI) напрямую в CrossRef, то для этого вам потребуется имя пользователя и пароль (можно получить на <a href=\"http://www.crossref.org\" target=\"_blank\">CrossRef</a>). Если у вас нет собственного имени пользователя и пароля вы сможете экспортировать в формат CrossRef XML, но не сможете зарегистрировать ваши DOI в CrossRef из OJS."
+msgstr "Если вы хотите использовать этот модуль для регистрации идентификаторов цифровых объектов(DOI) напрямую в Crossref, то для этого вам потребуется имя пользователя и пароль (можно получить на <a href=\"http://www.crossref.org\" target=\"_blank\">Crossref</a>). Если у вас нет собственного имени пользователя и пароля вы сможете экспортировать в формат Crossref XML, но не сможете зарегистрировать ваши DOI в Crossref из OJS."
 
 msgid "plugins.importexport.crossref.settings.form.username"
 msgstr "Имя пользователя"
 
 msgid "plugins.importexport.crossref.settings.form.usernameRequired"
-msgstr "Пожалуйста, введите имя пользователя, которое вы получили от CrossRef."
+msgstr "Пожалуйста, введите имя пользователя, которое вы получили от Crossref."
 
 msgid "plugins.importexport.crossref.settings.form.automaticRegistration.description"
-msgstr "OJS будет депонировать присвоенные DOI автоматически в CrossRef. Обратите внимание, что это может потребовать небольшого количества времени после публикации для обработки (например, в зависимости от настроек вашего cron). Вы можете проверить все незарегистрированные DOI."
+msgstr "OJS будет депонировать присвоенные DOI автоматически в Crossref. Обратите внимание, что это может потребовать небольшого количества времени после публикации для обработки (например, в зависимости от настроек вашего cron). Вы можете проверить все незарегистрированные DOI."
 
 msgid "plugins.importexport.crossref.settings.form.testMode.description"
-msgstr "Использовать тестовый API CrossRef (среда тестирования) для депонирования DOI. Пожалуйста, не забудьте убрать этот параметр для реальной работы."
+msgstr "Использовать тестовый API Crossref (среда тестирования) для депонирования DOI. Пожалуйста, не забудьте убрать этот параметр для реальной работы."
 
 msgid "plugins.importexport.crossref.settings.form.validation"
 msgstr "Проверка XML. Используйте этот параметр, чтобы скачать XML для ручной регистрации DOI."
@@ -103,7 +103,7 @@ msgid "plugins.importexport.crossref.action.markRegistered"
 msgstr "Отметить как активный"
 
 msgid "plugins.importexport.crossref.senderTask.name"
-msgstr "Задача автоматической регистрации CrossRef"
+msgstr "Задача автоматической регистрации Crossref"
 
 msgid "plugins.importexport.crossref.cliUsage"
 msgstr ""

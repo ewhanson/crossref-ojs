@@ -12,10 +12,10 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.importexport.crossref.description"
-msgstr "Εξαγωγή των μεταδεδομένων του άρθρου σε μορφή CrossRef XML."
+msgstr "Εξαγωγή των μεταδεδομένων του άρθρου σε μορφή Crossref XML."
 
 msgid "plugins.importexport.crossref.displayName"
-msgstr "Πρόσθετο εξαγωγής CrossRef XML"
+msgstr "Πρόσθετο εξαγωγής Crossref XML"
 
 msgid "plugins.importexport.crossref.requirements.satisfied"
 msgstr "Πληρούνται όλες οι απαιτήσεις των πρόσθετων."

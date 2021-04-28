@@ -15,10 +15,10 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.importexport.crossref.displayName"
-msgstr "CrossRef XML Eksport-plugin"
+msgstr "Crossref XML Eksport-plugin"
 
 msgid "plugins.importexport.crossref.description"
-msgstr "Eksportér artikelmetadata i CrossRef XML format."
+msgstr "Eksportér artikelmetadata i Crossref XML format."
 
 msgid "plugins.importexport.crossref.cliUsage"
 msgstr ""
@@ -52,7 +52,7 @@ msgstr ""
 "dette plugin."
 
 msgid "plugins.importexport.crossref.settings.depositorIntro"
-msgstr "Følgende elementer er påkrævet for at foretage en CrossRef-deponering."
+msgstr "Følgende elementer er påkrævet for at foretage en Crossref-deponering."
 
 msgid "plugins.importexport.crossref.settings.form.depositorName"
 msgstr "Deponents navn"
@@ -69,23 +69,23 @@ msgstr "Indsæt deponent-e-mail."
 msgid "plugins.importexport.crossref.registrationIntro"
 msgstr ""
 "Hvis du ønsker at anvende dette plugin til direkte registrering af Digital "
-"Object Identifiers (DOI'er) hos CrossRef skal du have et brugernavn og en "
+"Object Identifiers (DOI'er) hos Crossref skal du have et brugernavn og en "
 "adgangskode (kan oprettes fra <a href=\"http://www.crossref.org\" target=\""
-"_blank\">CrossRef</a>). Hvis du ikke har dit eget brugernavn og password, "
-"kan du stadig eksportere via CrossRef XML formatet, men du kan ikke "
-"registrere dine DOI'er hos CrossRef direkte via OJS."
+"_blank\">Crossref</a>). Hvis du ikke har dit eget brugernavn og password, "
+"kan du stadig eksportere via Crossref XML formatet, men du kan ikke "
+"registrere dine DOI'er hos Crossref direkte via OJS."
 
 msgid "plugins.importexport.crossref.settings.form.username"
 msgstr "Brugernavn"
 
 msgid "plugins.importexport.crossref.settings.form.usernameRequired"
-msgstr "Indsæt det brugernavn du har fået udleveret fra CrossRef."
+msgstr "Indsæt det brugernavn du har fået udleveret fra Crossref."
 
 msgid "plugins.importexport.crossref.settings.form.automaticRegistration.description"
-msgstr "OJS vil deponere tildelte DOI'er automatisk hos CrossRef. Bemærk, at der kan gå kort tid mellem publicering og endelig færdigbehandling. Alle ikke-registrerede DOI'er kan fremfindes."
+msgstr "OJS vil deponere tildelte DOI'er automatisk hos Crossref. Bemærk, at der kan gå kort tid mellem publicering og endelig færdigbehandling. Alle ikke-registrerede DOI'er kan fremfindes."
 
 msgid "plugins.importexport.crossref.settings.form.testMode.description"
-msgstr "Brug CrossRef test-API til DOI-deponering (testopstilling). Glem ikke at fjerne denne mulighed under produktionen."
+msgstr "Brug Crossref test-API til DOI-deponering (testopstilling). Glem ikke at fjerne denne mulighed under produktionen."
 
 msgid "plugins.importexport.crossref.issues.description"
 msgstr "Bemærk: Kun numre (og ikke deres artikler) vil her blive taget i betragtning ved eksport/registrering."
@@ -119,7 +119,7 @@ msgid "plugins.importexport.crossref.action.markRegistered"
 msgstr "Markér aktiv"
 
 msgid "plugins.importexport.crossref.senderTask.name"
-msgstr "CrossRef automatiske registreringsopgave"
+msgstr "Crossref automatiske registreringsopgave"
 
 #, fuzzy
 msgid "plugins.importexport.crossref.action.export"

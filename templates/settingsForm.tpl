@@ -1,5 +1,5 @@
 {**
- * plugins/importexport/crossref/templates/settingsForm.tpl
+ * plugins/generic/crossref/templates/settingsForm.tpl
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -16,13 +16,6 @@
 </script>
 <form class="pkp_form" id="crossrefSettingsForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="manage" plugin="CrossRefExportPlugin" category="importexport" verb="save"}">
 	{csrf}
-	{if $doiPluginSettingsLinkAction}
-		{fbvFormArea id="doiPluginSettingsLink"}
-			{fbvFormSection}
-				{include file="linkAction/linkAction.tpl" action=$doiPluginSettingsLinkAction}
-			{/fbvFormSection}
-		{/fbvFormArea}
-	{/if}
 	{fbvFormArea id="crossrefSettingsFormArea"}
 		<p class="pkp_help">{translate key="plugins.importexport.crossref.settings.depositorIntro"}</p>
 		{fbvFormSection}
