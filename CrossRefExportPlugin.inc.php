@@ -497,6 +497,27 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 				break;
 		}
 	}
+
+	/**
+	 * @see ImportExportPlugin::getImportFilter
+	 */
+	function getImportFilter($xmlFile) {
+		throw new BadMethodCallException();
+	}
+
+	/**
+	 * @see ImportExportPlugin::getExportFilter
+	 */
+	function getExportFilter($exportType) {
+		throw new BadMethodCallException();
+	}
+
+	/**
+	 * @see ImportExportPlugin::getAppSpecificDeployment
+	 */
+	function getAppSpecificDeployment($context, $user) {
+		throw new BadMethodCallException();
+	}
 }
 
 
