@@ -14,6 +14,8 @@
  *
  */
 
+use PKP\core\JSONMessage;
+
 import('lib.pkp.classes.plugins.GenericPlugin');
 
 class CrossRefPlugin extends GenericPlugin {
