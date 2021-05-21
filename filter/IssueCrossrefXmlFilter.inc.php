@@ -55,7 +55,7 @@ class IssueCrossrefXmlFilter extends NativeExportFilter {
 		$rootNode = $this->createRootNode($doc);
 		$doc->appendChild($rootNode);
 
-		// Create and appet the 'head' node and all parts inside it
+		// Create and append the 'head' node and all parts inside it
 		$rootNode->appendChild($this->createHeadNode($doc));
 
 		// Create and append the 'body' node, that contains everything
