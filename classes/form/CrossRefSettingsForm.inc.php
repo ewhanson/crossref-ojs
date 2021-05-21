@@ -50,7 +50,7 @@ class CrossRefSettingsForm extends Form {
 	//
 	/**
 	 * Constructor
-	 * @param $plugin CrossRefPlugin
+	 * @param $plugin \PKP\plugins\Plugin
 	 * @param $contextId integer
 	 */
 	function __construct($plugin, $contextId) {
@@ -65,6 +65,7 @@ class CrossRefSettingsForm extends Form {
 			$application = Application::get();
 			$request = $application->getRequest();
 			$dispatcher = $application->getDispatcher();
+			// TODO: Check if needed at all anymore
 			$doiPluginSettingsLinkAction = new LinkAction(
 				'settings',
 				new AjaxModal(

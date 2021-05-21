@@ -183,21 +183,9 @@ class CrossRefPlugin extends GenericPlugin {
 			// settings form
 			case 'settings':
 				$this->import('classes.form.CrossRefSettingsForm');
-				$form = new CrossRefSettingsForm($this, $request->getContext()->getId());
+				$form = new CrossRefSettingsForm($this->_getExportPlugin(), $request->getContext()->getId());
+				$form->initData();
 
-				// Fetch the form the first time it loads,
-				// before the user has tried to save it
-				if ($request->getUserVar('save')) {
-					$form->readInputData();
-					if ($form->validate()) {
-						$form->execute();
-						$notificationMgr = new NotificationManager();
-						$notificationMgr->createTrivialNotification($request->getUser()->getId());
-						return new JSONMessage(true);
-					}
-				} else {
-					$form->initData();
-				}
 				return new JSONMessage(true, $form->fetch($request));
 		}
 		return parent::manage($args, $request);
