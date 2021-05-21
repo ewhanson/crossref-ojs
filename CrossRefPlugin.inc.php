@@ -15,6 +15,8 @@
  */
 
 use PKP\core\JSONMessage;
+use PKP\linkAction\request\AjaxModal;
+use PKP\security\Role;
 
 import('lib.pkp.classes.plugins.GenericPlugin');
 
@@ -92,7 +94,7 @@ class CrossRefPlugin extends GenericPlugin {
 					[
 						'pattern' => $handler->getEndpointPattern() . '/crossref',
 						'handler' => [$this, 'executeCrossRefExportAction'],
-						'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+						'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
 					]
 				);
 				break;
@@ -155,7 +157,6 @@ class CrossRefPlugin extends GenericPlugin {
 	 */
 	public function getActions($request, $verb) {
 		$router = $request->getRouter();
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		return array_merge(
 			$this->getEnabled() ? array(
 				new LinkAction(
