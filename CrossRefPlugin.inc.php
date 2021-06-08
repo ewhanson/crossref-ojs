@@ -59,6 +59,8 @@ class CrossRefPlugin extends GenericPlugin {
 				HookRegistry::register('API::submissions::params', [$this, 'modifyAPISubmissionsParams']);
 				HookRegistry::register('Submission::getMany::queryBuilder', [$this, 'modifySubmissionQueryBuilder']);
 				HookRegistry::register('Submission::getMany::queryObject', [$this, 'modifySubmissionQueryObject']);
+
+				HookRegistry::register('DoiSettingsForm::setEnabledRegistrationAgencies', [$this, 'addAsRegistrationAgencyOption']);
 			}
 		}
 
@@ -102,7 +104,7 @@ class CrossRefPlugin extends GenericPlugin {
 					$endpoints['POST'],
 					[
 						'pattern' => $handler->getEndpointPattern() . '/crossref',
-						'handler' => [$this, 'executeCrossRefExportAction'],
+						'handler' => [$this, 'initiateExportAction'],
 						'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
 					]
 				);
@@ -272,6 +274,28 @@ class CrossRefPlugin extends GenericPlugin {
 				}
 			});
 		}
+	}
+
+    /**
+     * Includes plugin in list of configurable registration agencies for DOI depositing functionality
+     *
+     * @param $hookName string DoiSettingsForm::setEnabledRegistrationAgencies
+     * @param $args array [
+     *      @option $doiSettingsForm DOISettingsForm
+     * ]
+     */
+	function addAsRegistrationAgencyOption($hookName, $args) {
+	    $doiSettingsForm = &$args[0];
+	    $doiSettingsForm->AddEnabledRegistrationAgency($this->getName(), 'Crossref');
+    }
+
+    public function initiateExportAction($action, $requestBody) {
+	    $request = $this->getRequest(); /** @var \PKP\core\PKPRequest */
+        $context = $request->getContext();
+	    $exportActionArgs = [
+	        'submissionIds' => $requestBody['ids'],
+        ];
+	    $this->_getExportPlugin()->prepareAndExportPubObjects($request, $context, $exportActionArgs);
 	}
 
 	/**

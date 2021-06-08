@@ -11,9 +11,6 @@ msgstr ""
 "PO-Revision-Date: 2019-09-30T06:56:43-07:00\n"
 "Language: \n"
 
-msgid "api.crossref.406.noSubmissionsIncluded"
-msgstr "No submission IDs were included with the request."
-
 msgid "api.crossref.406.noActionIncluded"
 msgstr "No valid action was included with the request."
 

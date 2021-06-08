@@ -198,7 +198,7 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 	 * @copydoc PubObjectsExportPlugin::executeExportAction()
 	 */
 	function executeExportAction($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation = null, $shouldRedirect = true) {
-		if ($request->getUserVar(EXPORT_ACTION_DEPOSIT)) {
+		if ($this->_checkForExportAction(EXPORT_ACTION_DEPOSIT)) {
 			$this->exportAndDeposit($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation, false);
 		} else {
 			parent::executeExportAction($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation, false);
