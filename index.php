@@ -19,4 +19,3 @@
 require_once('CrossRefPlugin.inc.php');
 
 return new CrossRefPlugin();
-
