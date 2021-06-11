@@ -46,6 +46,20 @@ use APP\submission\Submission;
 
 class CrossRefExportPlugin extends DOIPubIdExportPlugin
 {
+    public function register($category, $path, $mainContextId = null)
+    {
+        $success = parent::register($category, $path, $mainContextId);
+        if ($success) {
+            // register hooks. This will prevent DB access attempts before the
+            // schema is installed.
+            if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) {
+                return true;
+            }
+
+            HookRegistry::register('Schema::get::submission', [$this, 'addToSchema']);
+        }
+        return $success;
+    }
 
     /**
      * @copydoc Plugin::getName()
@@ -541,6 +555,27 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin
     public function getExportFilter($exportType)
     {
         throw new BadMethodCallException();
+    }
+
+    /**
+     * Add properties for Crossref to the entity's list for storage in the database.
+     * This is used for SchemaDAO-backed entities only.
+     *
+     * @param $hookName string `Schema::get::submission`
+     * @param $args array
+     */
+    public function addToSchema($hookName, $args) : bool
+    {
+        $schema = & $args[0];
+        foreach ($this->_getObjectAdditionalSettings() as $settingName) {
+            $schema->properties->{$settingName} = (object) [
+                'type' => 'string',
+                'apiSummary' => true,
+                'validation' => ['nullable'],
+            ];
+        }
+
+        return false;
     }
 
     /**
