@@ -244,13 +244,16 @@ class CrossRefPlugin extends GenericPlugin
      *
      * @param $hookName string DoiSettingsForm::setEnabledRegistrationAgencies
      * @param $args array [
-     *      @option $doiSettingsForm DOISettingsForm
+     *      @option $enabledRegistrationAgencies array
      * ]
      */
     public function addAsRegistrationAgencyOption($hookName, $args)
     {
-        $doiSettingsForm = &$args[0];
-        $doiSettingsForm->AddEnabledRegistrationAgency($this->getName(), 'Crossref');
+        $enabledRegistrationAgencies = &$args[0];
+        $enabledRegistrationAgencies[] = [
+            'value' => $this->getName(),
+            'label' => 'Crossref'
+        ];
     }
 
     public function initiateExportAction($action, $requestBody)
